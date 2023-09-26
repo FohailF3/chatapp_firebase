@@ -1,0 +1,221 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.signInContainer {
+  .resetButton {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+  }
+}
+
+.home {
+  background-color: #a7bcff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    width: 65%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+
+    .sidebar {
+      flex: 1;
+      text-align: left;
+      border: 1px solid #3e3c61;
+      background-color: #3e3c61;
+
+      .navbar {
+        background-color: #2f2d52;
+        display: flex;
+        align-items: center;
+        height: 50px;
+        padding: 10px;
+        justify-content: space-between;
+        color: #ddddf7;
+      }
+
+      .search {
+        border-radius: 1px solid gray;
+
+        .searchForm {
+          padding: 10px;
+
+          .input {
+            background-color: transparent;
+            border: none;
+            color: white;
+            width: 100%;
+            outline: none;
+          }
+        }
+      }
+
+      .userChat {
+        padding: 10px 0 0 10px;
+        color: white;
+        cursor: pointer;
+
+        /* &:hover {
+          background-color: #2f2d52;
+        } */
+      }
+
+      .userChatInfo {
+        .name {
+          font-size: 18px;
+          font-weight: bold;
+        }
+
+        .message {
+          font-size: 14px;
+          color: lightgray;
+        }
+
+        &:hover {
+          background-color: #2f2d52;
+          cursor: pointer;
+
+        }
+      }
+    }
+
+    .chat {
+      flex: 2;
+      text-align: left;
+
+      .chatInfo {
+        height: 50px;
+        background-color: #5d5b8d;
+        color: lightgray;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+      }
+
+      .messages {
+        background-color: #ddddf7;
+        padding: 10px;
+        height: calc(100% - 160px);
+        overflow: scroll;
+
+        .message {
+          display: flex;
+          gap: 20px;
+          margin-bottom: 20px;
+
+          .messageInfo {
+            display: flex;
+            flex-direction: column;
+
+            .messageInfoTime {
+              color: gray;
+              font-weight: 300;
+            }
+          }
+
+          .messageContent {
+            max-width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .messageSpan {
+              background-color: #fff;
+              padding: 10px 20px;
+              border-radius: 0px 10px 10px 10px;
+            }
+          }
+
+          &.owner {
+            flex-direction: row-reverse;
+
+            .messageSpan {
+              background-color: #8da4f1;
+              color: white;
+              border-radius: 10px 0px 10px 10px;
+            }
+          }
+        }
+      }
+
+      .input {
+        background-color: white;
+        height: 50px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .inputText {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: #2f2d52;
+        font-size: 18px;
+
+        &::placeholder {
+          color: lightgray;
+        }
+      }
+
+      .send {
+        height: 35px;
+        cursor: pointer;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        background-color: #a7bcff;
+      }
+    }
+  }
+}
+
+.authdetail {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
