@@ -6,16 +6,11 @@ import ForgotPassword from "./components/auth/ForgotPassword";
 import Home from "./components/app/Home";
 
 function App() {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   return (
     <div className="App">
-      <Routes
-        element={
-          <div>
-            <h1>Layout</h1>
-            <Outlet />
-          </div>
-        }
-      >
+      <Routes>
         <Route path="/" element={<SignIn />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="reset" element={<ForgotPassword />} />
