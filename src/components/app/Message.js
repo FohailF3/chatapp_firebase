@@ -1,31 +1,57 @@
-import React, { useContext, useEffect, useRef } from 'react'
-import ChatContext from '../../context/ChatContext';
+import React, { useContext, useState } from "react";
+import ChatContext from "../../context/ChatContext";
 
-const Message = ({message}) => {
-
+const Message = ({ message }) => {
+  const [isSpanVisible, setIsSpanVisible] = useState(false);
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const { data } = useContext(ChatContext);
 
-  const ref = useRef();
+  const dateTime = message.date.toDate();
+  const day = dateTime.getDate().toString().padStart(2, "0");
+  const month = (dateTime.getMonth() + 1).toString().padStart(2, "0"); // Month is zero-indexed
+  const year = dateTime.getFullYear().toString().substr(-2); // Get the last 2 digits of the year
+  const hours = dateTime.getHours().toString().padStart(2, "0");
+  const minutes = dateTime.getMinutes().toString().padStart(2, "0");
+  const seconds = dateTime.getSeconds().toString().padStart(2, "0");
 
-  useEffect = () => {
-    ref.current?.scrollIntoView({
-      behaviour: "smooth"
-    },[message])
-  }
+  const handleSpanClick = () => {
+    setIsSpanVisible(!isSpanVisible);
+  };
 
-  console.log("date", data);
   return (
-    <div ref={ref} className={`message ${message.senderId === currentUser.uid && "owner"}`}>
-        <div className='messageInfo'>
-            <span>Fohailmessageinfo</span>
-            <span className='messageInfoTime'>just now</span>
-        </div>
-        <div className='messageContent'>
-            <span className='messageSpan'>{message.text}</span>
-        </div>
+    <div
+      className={`message ${message.senderId === currentUser.uid && "owner"}`}
+    >
+      <div className="messageInfo">
+        <span>
+          {message.senderId === currentUser.uid
+            ? currentUser.displayName
+            : data.user.displayName}
+        </span>
+      </div>
+      <div className="messageContent">
+        <span className="messageSpan" onClick={handleSpanClick}>
+          {message.text}
+          {"\n"}
+          {isSpanVisible && (
+            <span className="messageInfoTime">
+              {hours +
+                ":" +
+                minutes +
+                ":" +
+                seconds +
+                ", " +
+                day +
+                "/" +
+                month +
+                "/" +
+                year}
+            </span>
+          )}
+        </span>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Message;

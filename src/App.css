@@ -149,11 +149,7 @@
           .messageInfo {
             display: flex;
             flex-direction: column;
-
-            .messageInfoTime {
-              color: gray;
-              font-weight: 300;
-            }
+            padding-top: 10px;
           }
 
           .messageContent {
@@ -166,6 +162,13 @@
               background-color: #fff;
               padding: 10px 20px;
               border-radius: 0px 10px 10px 10px;
+              white-space: pre-line;
+            }
+
+            .messageInfoTime {
+              color: gray;
+              font-weight: 300;
+              font-size: 12px;
             }
           }
 
@@ -173,7 +176,7 @@
             flex-direction: row-reverse;
 
             .messageSpan {
-              background-color: #8da4f1;
+              background-color: #a6bafd;
               color: white;
               border-radius: 10px 0px 10px 10px;
             }
